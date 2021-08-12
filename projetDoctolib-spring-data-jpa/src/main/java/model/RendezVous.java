@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "rendez_vous")
@@ -21,6 +22,9 @@ public class RendezVous {
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long id;
+		
+		@Version
+		private int version;
 		
 		@Column(name = "statut")
 		private Statut statut;
@@ -98,6 +102,8 @@ public class RendezVous {
 		public void setPrenomPatient(String prenomPatient) {
 			this.prenomPatient = prenomPatient;
 		}
+
+
 		
 		
 	}
