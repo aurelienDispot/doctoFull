@@ -20,13 +20,11 @@ public class Praticien extends Personne {
 	@OneToMany(mappedBy="praticien")
 	private List<Praticien> praticiens = new ArrayList<Praticien>();
 
-//	@ManyToOne
-//	@JoinColumn(name="creneauxHoraires")
-//	private CrenauxHoraires creneauxHoraires;
+//	@OneToMany(mappedBy="creneauxHoraires")
+//	private List<CreneauxHoraires> creneauxHorairess = new ArrayList<CreneauxHoraires>();
 //	
-//	@ManyToOne
-//	@JoinColumn(name="rendezVous")
-//	private RendezVous rendezVous;
+//	@OneToMany(mappedBy="rendezVous")
+//	private List<RendezVous> rendezVouss = new ArrayList<RendezVous>();
 //	
 //	@OneToMany(mappedBy="motifConsultation")
 //	private List<MotifConsultation> motifConsultations = new ArrayList<MotifConsultation>();
