@@ -10,14 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Rendez-Vous")
-@NamedQuery(name = "RendezVous.findByPatientId", query = "select rv.rendezvous from Patient p where p.id = :idPatient")
 
 public class RendezVous {
 
