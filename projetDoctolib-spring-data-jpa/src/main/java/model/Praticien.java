@@ -16,18 +16,9 @@ public class Praticien extends Personne {
 	private int dureeDefault;
 	
 	@OneToMany(mappedBy="praticien")
-<<<<<<< HEAD
 	private List<Praticien> praticiens = new ArrayList<Praticien>();
 
-//	@OneToMany(mappedBy="creneauxHoraires")
-//	private List<CreneauxHoraires> creneauxHorairess = new ArrayList<CreneauxHoraires>();
-//	
-//	@OneToMany(mappedBy="rendezVous")
-//	private List<RendezVous> rendezVouss = new ArrayList<RendezVous>();
-//	
-//	@OneToMany(mappedBy="motifConsultation")
-//	private List<MotifConsultation> motifConsultations = new ArrayList<MotifConsultation>();
-=======
+
 	private List<PraticienSpecialite> praticienSpecialite = new ArrayList<PraticienSpecialite>();
 
 	@OneToMany(mappedBy = "praticien")
@@ -38,7 +29,6 @@ public class Praticien extends Personne {
 	
 	@OneToMany(mappedBy="praticien")
 	private List<MotifConsultation> motifConsultation = new ArrayList<MotifConsultation>();
->>>>>>> main
 
 	public Praticien() {
 		super();
