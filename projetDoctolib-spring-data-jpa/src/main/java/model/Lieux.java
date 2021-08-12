@@ -1,17 +1,19 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "rating")
+@Table(name = "lieux")
 public class Lieux {
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,20 +22,10 @@ public class Lieux {
 		private String nom;
 		@Column(name = "phone")
 		private String telephone;
-		@OneToOne()
+		@OneToOne
 		private Adresse adresse;
-		@ManyToOne
-		@JoinColumn(name = "creneauxHoraires_id")
-		private CreneauxHoraires creneauxHoraires;
-		
-		public Lieux(Long id, String nom, String telephone, Adresse adresse, CreneauxHoraires creneauxHoraires) {
-			super();
-			this.id = id;
-			this.nom = nom;
-			this.telephone = telephone;
-			this.adresse = adresse;
-			this.creneauxHoraires = creneauxHoraires;
-		}
+		@OneToMany(mappedBy = "lieux")
+		private List<CreneauxHoraires> creneauxHoraires = new ArrayList<CreneauxHoraires>();
 
 		public Lieux() {
 			super();
@@ -70,12 +62,13 @@ public class Lieux {
 		public void setAdresse(Adresse adresse) {
 			this.adresse = adresse;
 		}
+		
 
-		public CreneauxHoraires getCreneauxHoraires() {
+		public List<CreneauxHoraires> getCreneauxHoraires() {
 			return creneauxHoraires;
 		}
 
-		public void setCreneauxHoraires(CreneauxHoraires creneauxHoraires) {
+		public void setCreneauxHoraires(List<CreneauxHoraires> creneauxHoraires) {
 			this.creneauxHoraires = creneauxHoraires;
 		}
 
