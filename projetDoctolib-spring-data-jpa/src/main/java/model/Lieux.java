@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "rating")
+@Table(name = "lieux")
 public class Lieux {
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,16 +25,7 @@ public class Lieux {
 		@OneToOne
 		private Adresse adresse;
 		@OneToMany(mappedBy = "lieux")
-		private CreneauxHoraires creneauxHoraires;
-		
-		public Lieux(Long id, String nom, String telephone, Adresse adresse, CreneauxHoraires creneauxHoraires) {
-			super();
-			this.id = id;
-			this.nom = nom;
-			this.telephone = telephone;
-			this.adresse = adresse;
-			this.creneauxHoraires = creneauxHoraires;
-		}
+		private List<CreneauxHoraires> creneauxHoraires = new ArrayList<CreneauxHoraires>();
 
 		public Lieux() {
 			super();
@@ -68,12 +62,13 @@ public class Lieux {
 		public void setAdresse(Adresse adresse) {
 			this.adresse = adresse;
 		}
+		
 
-		public CreneauxHoraires getCreneauxHoraires() {
+		public List<CreneauxHoraires> getCreneauxHoraires() {
 			return creneauxHoraires;
 		}
 
-		public void setCreneauxHoraires(CreneauxHoraires creneauxHoraires) {
+		public void setCreneauxHoraires(List<CreneauxHoraires> creneauxHoraires) {
 			this.creneauxHoraires = creneauxHoraires;
 		}
 
