@@ -1,1 +1,10 @@
 /target/
+<<<<<<< HEAD
+=======
+
+.classpath
+
+.project
+
+.settings/
+>>>>>>> main
