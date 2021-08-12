@@ -1,9 +1,7 @@
 package model;
 
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,13 +20,14 @@ public class CreneauxHoraires {
 	private Long id;
 	@Column(name = "dtDebut")
 	private Date dtDebut;
-	@OneToMany(mappedBy = "creneauxHoraires")
-	private List<Lieux> lieux = new ArrayList<Lieux>();
+	@ManyToOne
+	@JoinColumn(name = "lieux_id")
+	private Lieux lieux;
 	@ManyToOne
 	@JoinColumn(name = "rendezVous_id")
-	private RendezVous rendezVous;
+	private RendezVous rendezvous;
 	@ManyToOne
-	@JoinColumn(name="praticien_id")
+	@JoinColumn(name = "praticien_id")
 	private Praticien praticien;
 
 	public CreneauxHoraires() {
@@ -52,20 +50,14 @@ public class CreneauxHoraires {
 		this.dtDebut = dtDebut;
 	}
 
-	public List<Lieux> getLieux() {
+	
+
+	public Lieux getLieux() {
 		return lieux;
 	}
 
-	public void setLieux(List<Lieux> lieux) {
+	public void setLieux(Lieux lieux) {
 		this.lieux = lieux;
-	}
-
-	public RendezVous getRendezVous() {
-		return rendezVous;
-	}
-
-	public void setRendezVous(RendezVous rendezVous) {
-		this.rendezVous = rendezVous;
 	}
 
 	public Praticien getPraticien() {
@@ -76,6 +68,14 @@ public class CreneauxHoraires {
 		this.praticien = praticien;
 	}
 
+	public RendezVous getRendezvous() {
+		return rendezvous;
+	}
+
+	public void setRendezvous(RendezVous rendezvous) {
+		this.rendezvous = rendezvous;
+	}
+
 	@Override
 	public String toString() {
 		return "CreneauxHoraires [id=" + id + ", dtDebut=" + dtDebut + ", lieux=" + lieux + "]";
@@ -83,3 +83,4 @@ public class CreneauxHoraires {
 	
 	
 }
+
