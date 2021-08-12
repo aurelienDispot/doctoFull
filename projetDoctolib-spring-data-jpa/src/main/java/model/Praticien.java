@@ -16,6 +16,7 @@ public class Praticien extends Personne {
 	private int dureeDefault;
 	
 	@OneToMany(mappedBy="praticien")
+<<<<<<< Updated upstream
 	private List<PraticienSpecialite> praticienSpecialite = new ArrayList<PraticienSpecialite>();
 
 	@OneToMany(mappedBy = "praticien")
@@ -25,18 +26,39 @@ public class Praticien extends Personne {
 	private List<RendezVous> rendezVous = new ArrayList<RendezVous>();
 
 	@OneToMany(mappedBy="praticien")
+=======
+	private List<Praticien> praticiens = new ArrayList<Praticien>();
+
+	@ManyToOne
+	@JoinColumn(name="creneauxHoraires")
+	private CreneauxHoraires creneauxHoraires;
+	
+	@ManyToOne
+	@JoinColumn(name="rendezVous")
+	private RendezVous rendezVous;
+	
+	@OneToMany(mappedBy="motifConsultation")
+>>>>>>> Stashed changes
 	private List<MotifConsultation> motifConsultations = new ArrayList<MotifConsultation>();
 
 	public Praticien() {
 		super();
 	}
 
+<<<<<<< Updated upstream
 	public Praticien(int dureeDefault, List<PraticienSpecialite> praticienSpecialite,
 			List<CreneauxHoraires> creneauxHoraires, List<RendezVous> rendezVous,
 			List<MotifConsultation> motifConsultations) {
 		super();
 		this.dureeDefault = dureeDefault;
 		this.praticienSpecialite = praticienSpecialite;
+=======
+	public Praticien(int dureeDefault, List<Praticien> praticiens, CreneauxHoraires creneauxHoraires,
+			RendezVous rendezVous, List<MotifConsultation> motifConsultations) {
+		super();
+		this.dureeDefault = dureeDefault;
+		this.praticiens = praticiens;
+>>>>>>> Stashed changes
 		this.creneauxHoraires = creneauxHoraires;
 		this.rendezVous = rendezVous;
 		this.motifConsultations = motifConsultations;

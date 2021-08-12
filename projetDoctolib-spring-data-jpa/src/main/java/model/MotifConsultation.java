@@ -7,13 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "MotifConsultation")
-@NamedQuery(name = "MotifConsultation.findByPatientId", query = "select motif.motifconsultation from Patient p where p.id = :idPatient")
 
 public class MotifConsultation {
 	
