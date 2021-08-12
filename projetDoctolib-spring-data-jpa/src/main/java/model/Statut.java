@@ -1,4 +1,4 @@
-package doctolib.model;
+package model;
 
 public enum Statut {
  Passé , Avenir ;
