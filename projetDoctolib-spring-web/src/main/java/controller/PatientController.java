@@ -69,7 +69,7 @@ public class PatientController {
 		
 		model.addAttribute("monPraticien", praticien);
 		
-		return "redirect:/creneauxHoraires/findByPraticien";
+		return "forward:/creneauxHoraires/findByPraticien";
 	}
 	
 	@GetMapping("/patient/rdv")
