@@ -25,7 +25,7 @@ public class CreneauxHoraires {
 	private Lieux lieux;
 	@ManyToOne
 	@JoinColumn(name = "rendezVous_id")
-	private RendezVous rendezvous;
+	private RendezVous rendezVous;
 	@ManyToOne
 	@JoinColumn(name = "praticien_id")
 	private Praticien praticien;
@@ -68,12 +68,12 @@ public class CreneauxHoraires {
 		this.praticien = praticien;
 	}
 
-	public RendezVous getRendezvous() {
-		return rendezvous;
+	public RendezVous getRendezVous() {
+		return rendezVous;
 	}
 
-	public void setRendezvous(RendezVous rendezvous) {
-		this.rendezvous = rendezvous;
+	public void setRendezvous(RendezVous rendezVous) {
+		this.rendezVous = rendezVous;
 	}
 
 	@Override
