@@ -23,23 +23,12 @@ public class Praticien extends Personne {
 	
 	@OneToMany(mappedBy = "praticien")
 	private List<RendezVous> rendezVous = new ArrayList<RendezVous>();
-
+	
 	@OneToMany(mappedBy="praticien")
-	private List<MotifConsultation> motifConsultations = new ArrayList<MotifConsultation>();
+	private List<MotifConsultation> motifConsultation = new ArrayList<MotifConsultation>();
 
 	public Praticien() {
 		super();
-	}
-
-	public Praticien(int dureeDefault, List<PraticienSpecialite> praticienSpecialite,
-			List<CreneauxHoraires> creneauxHoraires, List<RendezVous> rendezVous,
-			List<MotifConsultation> motifConsultations) {
-		super();
-		this.dureeDefault = dureeDefault;
-		this.praticienSpecialite = praticienSpecialite;
-		this.creneauxHoraires = creneauxHoraires;
-		this.rendezVous = rendezVous;
-		this.motifConsultations = motifConsultations;
 	}
 
 	public int getDureeDefault() {
@@ -74,19 +63,21 @@ public class Praticien extends Personne {
 		this.rendezVous = rendezVous;
 	}
 
-	public List<MotifConsultation> getMotifConsultations() {
-		return motifConsultations;
+	public List<MotifConsultation> getMotifConsultation() {
+		return motifConsultation;
 	}
 
-	public void setMotifConsultations(List<MotifConsultation> motifConsultations) {
-		this.motifConsultations = motifConsultations;
+	public void setMotifConsultation(List<MotifConsultation> motifConsultation) {
+		this.motifConsultation = motifConsultation;
 	}
 
 	@Override
 	public String toString() {
 		return "Praticien [dureeDefault=" + dureeDefault + ", praticienSpecialite=" + praticienSpecialite
-				+ ", creneauxHoraires=" + creneauxHoraires + ", rendezVous=" + rendezVous + ", motifConsultations="
-				+ motifConsultations + "]";
+				+ ", creneauxHoraires=" + creneauxHoraires + ", rendezVous=" + rendezVous + ", motifConsultation="
+				+ motifConsultation + "]";
 	}
+
+	
 	
 }
