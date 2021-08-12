@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "MotifConsultation")
@@ -18,6 +19,9 @@ public class MotifConsultation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@Version
+	private int version;
 	
 	@Column(name = "nom")
 	private String nom;
@@ -79,6 +83,8 @@ public class MotifConsultation {
 	public void setNbCreneaux(int nbCreneaux) {
 		this.nbCreneaux = nbCreneaux;
 	}
+
+	
 	
 	
 	
