@@ -27,19 +27,10 @@ public class CreneauxHoraires {
 	private List<Lieux> lieux = new ArrayList<Lieux>();
 	@ManyToOne
 	@JoinColumn(name = "rendezVous_id")
-	private RendezVous rendezvous;
-	@OneToMany(mappedBy = "creneauxHoraires")
-	private List<Praticien> practicien = new ArrayList<Praticien>();
-	
-	public CreneauxHoraires(Long id, Date dtDebut, List<Lieux> lieux, RendezVous rendezvous,
-			List<Praticien> practicien) {
-		super();
-		this.id = id;
-		this.dtDebut = dtDebut;
-		this.lieux = lieux;
-		this.rendezvous = rendezvous;
-		this.practicien = practicien;
-	}
+	private RendezVous rendezVous;
+	@ManyToOne
+	@JoinColumn(name="praticien_id")
+	private Praticien praticien;
 
 	public CreneauxHoraires() {
 		super();
@@ -69,20 +60,20 @@ public class CreneauxHoraires {
 		this.lieux = lieux;
 	}
 
-	public RendezVous getRendezvous() {
-		return rendezvous;
+	public RendezVous getRendezVous() {
+		return rendezVous;
 	}
 
-	public void setRendezvous(RendezVous rendezvous) {
-		this.rendezvous = rendezvous;
+	public void setRendezVous(RendezVous rendezVous) {
+		this.rendezVous = rendezVous;
 	}
 
-	public List<Praticien> getPracticien() {
-		return practicien;
+	public Praticien getPraticien() {
+		return praticien;
 	}
 
-	public void setPracticien(List<Praticien> practicien) {
-		this.practicien = practicien;
+	public void setPraticien(Praticien praticien) {
+		this.praticien = praticien;
 	}
 
 	@Override
