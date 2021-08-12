@@ -1,16 +1,21 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Rendez-Vous")
-@NamedQuery(name = "RendezVous.findByPatientId", query = "select rv.rendezvous from Patient p where p.id = :idPatient")
 
 public class RendezVous {
 
@@ -27,14 +32,19 @@ public class RendezVous {
 		@Column(name = "prenomPatient")
 		private String prenomPatient;
 
-//		@ManyToOne(mappedBy = "rendezvous")
-//		private Praticien praticien ;
+		@ManyToOne
+		@JoinColumn(name = "praticien_id")
+		private Praticien praticien ;
 
-//		@ManyToOne(mappedBy = "rendezvous")
-//		private Patient patient;
+		@ManyToOne
+		@JoinColumn(name = "patient_id")
+		private Patient patient;
 		
-//		@OneToMany
-//		private CreneauxHoraires creneauxhoraires;
+		@OneToMany(mappedBy = "rendezVous")
+		private List<CreneauxHoraires> creneauxHoraires = new ArrayList<CreneauxHoraires>();
+		
+		@OneToOne
+		private MotifConsultation motifConsultation;
 		
 		
 		public RendezVous() {
