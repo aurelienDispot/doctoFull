@@ -5,8 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,10 +19,9 @@ public class Lieux {
 		private String nom;
 		@Column(name = "phone")
 		private String telephone;
-		@OneToOne()
+		@OneToOne
 		private Adresse adresse;
-		@ManyToOne
-		@JoinColumn(name = "creneauxHoraires_id")
+		@OneToMany(mappedBy = "lieux")
 		private CreneauxHoraires creneauxHoraires;
 		
 		public Lieux(Long id, String nom, String telephone, Adresse adresse, CreneauxHoraires creneauxHoraires) {
