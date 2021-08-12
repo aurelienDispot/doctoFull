@@ -1,0 +1,13 @@
+/target/
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+
+.classpath
+
+.project
+
+.settings/
+>>>>>>> main
+=======
+>>>>>>> Stashed changes
