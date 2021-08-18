@@ -1,4 +1,4 @@
-package model;
+package spring.boot.doctolib.model;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -35,21 +35,6 @@ public abstract class Personne {
 	public Personne() {
 		super();
 	}
-	
-	
-
-	public Personne(Long id, int version, String nom, String prenom, String email, String login, String password) {
-		super();
-		this.id = id;
-		this.version = version;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-		this.login = login;
-		this.password = password;
-	}
-
-
 
 	public Long getId() {
 		return id;

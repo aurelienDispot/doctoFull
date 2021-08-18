@@ -1,4 +1,4 @@
-package model;
+package spring.boot.doctolib.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,21 +30,6 @@ public class Praticien extends Personne {
 	public Praticien() {
 		super();
 	}
-
-	
-	
-	public Praticien(int dureeDefault, List<PraticienSpecialite> praticienSpecialite,
-			List<CreneauxHoraires> creneauxHoraires, List<RendezVous> rendezVous,
-			List<MotifConsultation> motifConsultation) {
-		super();
-		this.dureeDefault = dureeDefault;
-		this.praticienSpecialite = praticienSpecialite;
-		this.creneauxHoraires = creneauxHoraires;
-		this.rendezVous = rendezVous;
-		this.motifConsultation = motifConsultation;
-	}
-
-
 
 	public int getDureeDefault() {
 		return dureeDefault;
