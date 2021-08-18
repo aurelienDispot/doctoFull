@@ -31,6 +31,17 @@ public class Lieux {
 			super();
 		}
 
+		
+		public Lieux(Long id, String nom, String telephone, Adresse adresse, List<CreneauxHoraires> creneauxHoraires) {
+			super();
+			this.id = id;
+			this.nom = nom;
+			this.telephone = telephone;
+			this.adresse = adresse;
+			this.creneauxHoraires = creneauxHoraires;
+		}
+
+
 		public Long getId() {
 			return id;
 		}

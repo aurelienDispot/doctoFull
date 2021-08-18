@@ -28,34 +28,34 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Version;
-
-@Entity
-@Table(name = "creneauxHoraires")
-public class CreneauxHoraires {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+import javax.persistence.Version;
+
+@Entity
+@Table(name = "creneauxHoraires")
+public class CreneauxHoraires {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Version
-	private int version;
-	@Column(name = "dtDebut")
-	private Date dtDebut;
+	private int version;
+	@Column(name = "dtDebut")
+	private Date dtDebut;
 	@ManyToOne
-	@JoinColumn(name = "lieux_id")
-	private Lieux lieux;
+	@JoinColumn(name = "lieux_id")
+	private Lieux lieux;
+	@ManyToOne
+	@JoinColumn(name = "rendezVous_id")
+	private RendezVous rendezVous;
 	@ManyToOne
-	@JoinColumn(name = "rendezVous_id")
-	private RendezVous rendezVous;
-	@ManyToOne
-	@JoinColumn(name = "praticien_id")
-	private Praticien praticien;
-
-	public CreneauxHoraires() {
-		super();
+	@JoinColumn(name = "praticien_id")
+	private Praticien praticien;
+
+	public CreneauxHoraires() {
+		super();
 	}
 	
-	
-
+	
+
 	public CreneauxHoraires(Long id, Date dtDebut, Lieux lieux, Praticien praticien) {
 		super();
 		this.dtDebut = dtDebut;
@@ -76,7 +76,18 @@ public class CreneauxHoraires {
 		this.praticien = praticien;
 	}
 
-	
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 
 
 	public int getVersion() {
@@ -91,33 +102,62 @@ public class CreneauxHoraires {
 
 
 
+	public Date getDtDebut() {
+		return dtDebut;
+	}
+
+
+
+	public void setDtDebut(Date dtDebut) {
+		this.dtDebut = dtDebut;
+	}
+
+
+
+	public Lieux getLieux() {
+		return lieux;
+	}
+
+
+
+	public void setLieux(Lieux lieux) {
+		this.lieux = lieux;
+	}
+
+
+
+	public RendezVous getRendezVous() {
+		return rendezVous;
+	}
+
+
+
 	public void setRendezVous(RendezVous rendezVous) {
 		this.rendezVous = rendezVous;
 	}
 
 
 
-	public Long getId() {
-		return id;
+	public Praticien getPraticien() {
+		return praticien;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
 
-	public Date getDtDebut() {
-		return dtDebut;
-	}
 
-	public void setDtDebut(Date dtDebut) {
-		this.dtDebut = dtDebut;
+	public void setPraticien(Praticien praticien) {
+		this.praticien = praticien;
 	}
 
 	
 
-	public Lieux getLieux() {
-		return lieux;
-	}
+
+
+	
+
+
+	
+
+
 }
 
 

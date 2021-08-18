@@ -1,4 +1,4 @@
-package model;
+package spring.boot.doctolib.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,14 +19,6 @@ public class Patient extends Personne {
 	public Patient() {
 		super();
 	}
-	
-
-	public Patient(Integer carteVitale, List<RendezVous> rendezVous) {
-		super();
-		this.carteVitale = carteVitale;
-		this.rendezVous = rendezVous;
-	}
-
 
 	public Integer getCarteVitale() {
 		return carteVitale;
