@@ -1,4 +1,4 @@
-package model;
+package spring.boot.doctolib.model;
 
 import java.util.ArrayList;
 import java.util.List;
