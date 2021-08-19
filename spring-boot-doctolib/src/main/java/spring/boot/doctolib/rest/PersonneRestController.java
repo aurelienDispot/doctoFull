@@ -18,62 +18,61 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import spring.boot.doctolib.model.Admin;
 import spring.boot.doctolib.model.Personne;
 import spring.boot.doctolib.model.Views;
 import spring.boot.doctolib.repository.IPersonneRepository;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/personne")
 @CrossOrigin("*")
-public class AdminRestController {
+public class PersonneRestController {
 
 	@Autowired
-	private IPersonneRepository adminRepo;
+	private IPersonneRepository personneRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewAdmin.class)
-	public List<Admin> findAll() {
-		return adminRepo.findAllAdmin();
+	@JsonView(Views.ViewPersonne.class)
+	public List<Personne> findAll() {
+		return personneRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewAdmin.class)
-	public Admin find(@PathVariable Long id) {
+	@JsonView(Views.ViewPersonne.class)
+	public Personne find(@PathVariable Long id) {
 
-		Optional<Personne> optAdmin = adminRepo.findById(id);
+		Optional<Personne> optPersonne = personneRepo.findById(id);
 
-		if (optAdmin.isPresent()) {
-			return (Admin) optAdmin.get();
+		if (optPersonne.isPresent()) {
+			return (Personne) optPersonne.get();
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 	}
 
 	@PostMapping("")
-	public Admin create(@RequestBody Admin admin) {
-		admin = adminRepo.save(admin);
+	public Personne create(@RequestBody Personne personne) {
+		personne = personneRepo.save(personne);
 
-		return admin;
+		return personne;
 	}
 
 	@PutMapping("/{id}")
-	public Admin update(@RequestBody Admin admin, @PathVariable Long id) {
-		if (!adminRepo.existsById(id)) {
+	public Personne update(@RequestBody Personne personne, @PathVariable Long id) {
+		if (!personneRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 
-		admin = adminRepo.save(admin);
+		personne = personneRepo.save(personne);
 
-		return admin;
+		return personne;
 	}
 
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
-		if (!adminRepo.existsById(id)) {
+		if (!personneRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 		
-		adminRepo.deleteById(id);
+		personneRepo.deleteById(id);
 	}
 }
