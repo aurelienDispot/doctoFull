@@ -19,10 +19,8 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import spring.boot.doctolib.model.PraticienSpecialite;
-import spring.boot.doctolib.model.Specialite;
 import spring.boot.doctolib.model.Views;
 import spring.boot.doctolib.repository.IPraticienSpecialiteRepository;
-import spring.boot.doctolib.repository.ISpecialiteRepository;
 
 @RestController
 @RequestMapping("/praticienSpecialite")

@@ -33,4 +33,7 @@ public interface IPersonneRepository extends JpaRepository<Personne, Long> {
 
 	@Query("select pr from Praticien pr where pr.id = :id")
 	Optional<Praticien> findFormateurById(@Param("id") Long id);
+	
+	@Query("select p from Personne p where p.login = :login")
+	Optional<Personne> findByLogin(@Param("login") String login);
 }
