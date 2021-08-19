@@ -16,6 +16,9 @@ public class Praticien extends Personne {
 	private int dureeDefault;
 	
 	@OneToMany(mappedBy="praticien")
+	private List<Praticien> praticiens = new ArrayList<Praticien>();
+
+
 	private List<PraticienSpecialite> praticienSpecialite = new ArrayList<PraticienSpecialite>();
 
 	@OneToMany(mappedBy = "praticien")
