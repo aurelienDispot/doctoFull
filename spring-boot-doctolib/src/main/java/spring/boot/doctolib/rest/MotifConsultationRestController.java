@@ -18,62 +18,64 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import spring.boot.doctolib.model.Admin;
-import spring.boot.doctolib.model.Personne;
+import spring.boot.doctolib.model.MotifConsultation;
 import spring.boot.doctolib.model.Views;
-import spring.boot.doctolib.repository.IPersonneRepository;
+import spring.boot.doctolib.repository.IMotifConsultationRepository;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/motifConsultation")
 @CrossOrigin("*")
-public class AdminRestController {
+public class MotifConsultationRestController {
 
 	@Autowired
-	private IPersonneRepository adminRepo;
+	private IMotifConsultationRepository motifConsultationRepo;
 
 	@GetMapping("")
-	@JsonView(Views.ViewAdmin.class)
-	public List<Admin> findAll() {
-		return adminRepo.findAllAdmin();
+	@JsonView(Views.ViewMotifConsultation.class)
+	public List<MotifConsultation> findAll() {
+		return motifConsultationRepo.findAll();
 	}
 
 	@GetMapping("/{id}")
-	@JsonView(Views.ViewAdmin.class)
-	public Admin find(@PathVariable Long id) {
+	@JsonView(Views.ViewMotifConsultation.class)
+	public MotifConsultation find(@PathVariable Long id) {
 
-		Optional<Personne> optAdmin = adminRepo.findById(id);
+		Optional<MotifConsultation> optMotifConsultation = motifConsultationRepo.findById(id);
 
-		if (optAdmin.isPresent()) {
-			return (Admin) optAdmin.get();
+		if (optMotifConsultation.isPresent()) {
+			return optMotifConsultation.get();
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 	}
 
 	@PostMapping("")
-	public Admin create(@RequestBody Admin admin) {
-		admin = adminRepo.save(admin);
+	@JsonView(Views.ViewMotifConsultation.class)
+	public MotifConsultation create(@RequestBody MotifConsultation motifConsultation) {
+		
+		motifConsultation = motifConsultationRepo.save(motifConsultation);
 
-		return admin;
+		return motifConsultation;
 	}
 
 	@PutMapping("/{id}")
-	public Admin update(@RequestBody Admin admin, @PathVariable Long id) {
-		if (!adminRepo.existsById(id)) {
+	@JsonView(Views.ViewMotifConsultation.class)
+	public MotifConsultation update(@RequestBody MotifConsultation motifConsultation, @PathVariable Long id) {
+		if (!motifConsultationRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 
-		admin = adminRepo.save(admin);
+		motifConsultation = motifConsultationRepo.save(motifConsultation);
 
-		return admin;
+		return motifConsultation;
 	}
 
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
-		if (!adminRepo.existsById(id)) {
+		if (!motifConsultationRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
 		
-		adminRepo.deleteById(id);
+		motifConsultationRepo.deleteById(id);
 	}
 }
