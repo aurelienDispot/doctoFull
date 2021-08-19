@@ -11,19 +11,27 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "specialite")
 public class Specialite {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(name = "nom", length = 100)
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@Column(name = "description", length = 1000)
+	@JsonView(Views.ViewCommon.class)
 	private String description;
 	@OneToMany(mappedBy="specialite")
+	@JsonIgnore
 	private List<PraticienSpecialite> praticienSpecialites = new ArrayList<PraticienSpecialite>();
 	
 	
