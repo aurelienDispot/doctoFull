@@ -15,6 +15,7 @@ public class Views {
 	public static class ViewMotifConsultation extends ViewCommon{}
 	
 	public static class ViewPraticien extends ViewPersonne{}
+	
 	public static class ViewSpecialite extends ViewCommon{}
 	
 	public static class ViewPraticienSpecialite extends ViewCommon{}
@@ -24,4 +25,5 @@ public class Views {
 	public static class ViewAdresse extends ViewCommon {}
 	
 	public static class ViewLieux extends ViewCommon {}
+	
 }
