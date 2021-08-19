@@ -12,4 +12,10 @@ public class Views {
 	public static class ViewRendezVous extends ViewCommon{}
 	
 	public static class ViewMotifConsultation extends ViewCommon{}
+	
+	public static class ViewPraticien extends ViewPersonne{}
+	public static class ViewSpecialite extends ViewCommon{}
+	
+	public static class ViewPraticienSpecialite extends ViewCommon{}
+
 }

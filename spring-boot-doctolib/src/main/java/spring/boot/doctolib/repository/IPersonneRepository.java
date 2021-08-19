@@ -1,6 +1,7 @@
 package spring.boot.doctolib.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -29,4 +30,7 @@ public interface IPersonneRepository extends JpaRepository<Personne, Long> {
 	
 	@Query("select pr from Praticien pr join CreneauxHoraires cr where cr.lieux.nom = :nom")
 	List<Praticien> findAllPraticienByLieux(@Param("nom") String nom);
+
+	@Query("select pr from Praticien pr where pr.id = :id")
+	Optional<Praticien> findFormateurById(@Param("id") Long id);
 }
