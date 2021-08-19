@@ -19,3 +19,7 @@ public class Views {
 	public static class ViewPraticienSpecialite extends ViewCommon{}
 
 }
+
+	public static class ViewCreneauxHoraires extends ViewCommon {}
+	public static class ViewAdresse extends ViewCommon {}
+	public static class ViewLieux extends ViewCommon {}
