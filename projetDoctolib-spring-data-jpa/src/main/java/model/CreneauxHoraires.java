@@ -28,34 +28,34 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Version;
-
-@Entity
-@Table(name = "creneauxHoraires")
-public class CreneauxHoraires {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+import javax.persistence.Version;
+
+@Entity
+@Table(name = "creneauxHoraires")
+public class CreneauxHoraires {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Version
-	private int version;
-	@Column(name = "dtDebut")
-	private Date dtDebut;
+	private int version;
+	@Column(name = "dtDebut")
+	private Date dtDebut;
 	@ManyToOne
-	@JoinColumn(name = "lieux_id")
-	private Lieux lieux;
+	@JoinColumn(name = "lieux_id")
+	private Lieux lieux;
+	@ManyToOne
+	@JoinColumn(name = "rendezVous_id")
+	private RendezVous rendezVous;
 	@ManyToOne
-	@JoinColumn(name = "rendezVous_id")
-	private RendezVous rendezVous;
-	@ManyToOne
-	@JoinColumn(name = "praticien_id")
-	private Praticien praticien;
-
-	public CreneauxHoraires() {
-		super();
+	@JoinColumn(name = "praticien_id")
+	private Praticien praticien;
+
+	public CreneauxHoraires() {
+		super();
 	}
 	
-	
-
+	
+
 	public CreneauxHoraires(Long id, Date dtDebut, Lieux lieux, Praticien praticien) {
 		super();
 		this.dtDebut = dtDebut;
